@@ -40,8 +40,7 @@ package tomasulogui;
  * they will be handled in the ROBEntry class), but they are crucial to
  * understanding ROB operation, so the comments are likewise included here:
  * 1. Busy
- *    - Whether the instruction has been issued or not (50% confident --
- *    why would an instruction be in the ROB if it hasn't issued?)
+ *    - I'm not sure what this means
  * 2. Instruction Type
  *    - This refers to whether this is a register instruction, store, or branch.
  * 3. State
