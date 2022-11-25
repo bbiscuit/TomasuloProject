@@ -1,5 +1,30 @@
 package tomasulogui;
 
+/**
+ * An entry in the reorder buffer queue.
+ * 
+ * From slide 68 of the Chapter 3 Slideshow, an ALU instruction requires 6
+ * fields in the reorder buffer (note, that these are for ALU instructions.
+ * While this covers most of what is necessary for loads, stores, and branches,
+ * it is not exhaustive):
+ * 1. Busy
+ *    - I'm not sure what this means
+ * 2. Instruction Type
+ *    - This refers to whether this is a register instruction, store, or branch.
+ * 3. State
+ *    - Currently complete
+ *    - Currently executing
+ * 4. Destination
+ *    - Register number, for ALU operations and loads
+ *       - Loads fall into this category, of course, because they write to
+ *       register.
+ *    - Address, for stores
+ * 5. Value
+ *    - The result of an operation or memory read
+ * 6. Tag
+ *    - The virtual register to snoop for on the CDB
+ *    - This, then, refers to operands (60% confident).
+ */
 public class ROBEntry {
   ReorderBuffer rob;
 
