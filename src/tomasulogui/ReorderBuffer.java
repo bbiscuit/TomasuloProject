@@ -43,9 +43,8 @@ package tomasulogui;
  *    - Whether the instruction has been issued or not (50% confident --
  *    why would an instruction be in the ROB if it hasn't issued?)
  * 2. Instruction Type
- *    - I believe this refers to I, J, and R type instructions (30% confident).
- *    - This information is necessary so that data can be read off of the
- *    instruction word correctly.
+ *    - This refers to whether this is a register instruction or a memory
+ *    instruction.
  * 3. State
  *    - Currently complete
  *    - Currently executing
