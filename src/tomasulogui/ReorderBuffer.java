@@ -126,7 +126,7 @@ public class ReorderBuffer {
   }
 
   public void readCDB(CDB cdb) {
-    // check entire CDB for someone waiting on this data
+    // check entire ROB for someone waiting on this data
     // could be destination reg
     // could be store address source
 
