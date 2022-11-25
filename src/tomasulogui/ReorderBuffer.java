@@ -43,8 +43,7 @@ package tomasulogui;
  *    - Whether the instruction has been issued or not (50% confident --
  *    why would an instruction be in the ROB if it hasn't issued?)
  * 2. Instruction Type
- *    - This refers to whether this is a register instruction or a memory
- *    instruction.
+ *    - This refers to whether this is a register instruction, store, or branch.
  * 3. State
  *    - Currently complete
  *    - Currently executing
