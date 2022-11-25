@@ -1,62 +1,5 @@
 package tomasulogui;
 
-/**
- * The reoder buffer is the "retire queue" of Tomasulo's algorithm. The ROB,
- * therefore, is Tomasulo's answer to precise exceptions and control hazards.
- * 
- * Retirement in Tomasulo's algorithm is an in-order process; it is the
- * ROB's job to ensure that retirement happens in-order, that way there is no
- * dependency issues when writing to the register file.
- * 
- * This is how the reorder buffer operates with Tomasulo's, per slide 69 of
- * the Chapter 3 Slideshow:
- * 1. Issue / Dispatch
- *    - Issue conditions
- *       - Must be a slot in the the reservation station AND the ROB
- *    - Operand Read
- *       Either...
- *       1. From ROB itself
- *       2. From reg file
- *       3. If the data isn't available at the moment of issue, then read
- *       "ROB #" (60% confident that this refers to setting up a tag to
- *       snoop for, since the data is, in this scenario, being calculated
- *       and written to a tag).
- * 2. Exec
- *    - ROB doesn't do anything here
- * 3. Writeback
- *    - Whenever something is written back, the ROB will snoop on the CDB
- *    to see if it was waiting for that value's tag
- * 4. Commit
- *    - Update register file if the result is a register.
- *    - Execute memory operation if the operation was a store.
- *    - Flush the ROB if the operation is a mispredicted branch.
- *    - Flush the ROB if an exception (not something we need to worry about
- *    for this project)
- * 
- * From slide 68 of the Chapter 3 Slideshow, an ALU instruction requires 6
- * fields in the reorder buffer (note, that these are for ALU instructions.
- * While this covers most of what is necessary for loads, stores, and branches,
- * it is not exhaustive). These will not be implemented in this class (rather,
- * they will be handled in the ROBEntry class), but they are crucial to
- * understanding ROB operation, so the comments are likewise included here:
- * 1. Busy
- *    - I'm not sure what this means
- * 2. Instruction Type
- *    - This refers to whether this is a register instruction, store, or branch.
- * 3. State
- *    - Currently complete
- *    - Currently executing
- * 4. Destination
- *    - Register number, for ALU operations and loads
- *       - Loads fall into this category, of course, because they write to
- *       register.
- *    - Address, for stores
- * 5. Value
- *    - The result of an operation or memory read
- * 6. Tag
- *    - The virtual register to snoop for on the CDB
- *    - This, then, refers to operands (60% confident).
- */
 public class ReorderBuffer {
   public static final int size = 30;
   int frontQ = 0;
@@ -125,7 +68,7 @@ public class ReorderBuffer {
   }
 
   public void readCDB(CDB cdb) {
-    // check entire ROB for someone waiting on this data
+    // check entire CDB for someone waiting on this data
     // could be destination reg
     // could be store address source
 
