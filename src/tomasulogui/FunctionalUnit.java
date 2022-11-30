@@ -12,7 +12,9 @@ public abstract class FunctionalUnit {
     public void squashAll() {
         // todo fill in
         
-        // need to finish
+        // empty all reservation stations of contents b/c of miss predict
+            // empty every operand
+            // and all operation field of all reservation stations
     }
 
     public abstract int calculateResult(int station);
