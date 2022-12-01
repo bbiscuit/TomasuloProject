@@ -18,7 +18,7 @@ public class IntAlu extends FunctionalUnit {
             // subtract two operands in reservation station
         // else
             // some other operation that I did think of if any
-        // update CDB with result of data (possibly tag)    
+        // update CDB with result of valid data from the reorder buffer (possibly tag)    
         
         // return result of calculation
         
@@ -28,6 +28,7 @@ public class IntAlu extends FunctionalUnit {
     }
 
     public int getExecCycles() {
+        // not sure if this is the only thing for this function
         return EXEC_CYCLES;
     }
 }
