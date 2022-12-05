@@ -14,69 +14,94 @@ public class BranchUnit
         ReservationStation resStat=stations[station];
         //updateBranchResultFeild() from ReorderBuffer
         
-        switch(station){
-          case 30:
+        //station is 0 or 1
+        // make sure it is not busy before calculating
+        //Is Redy function from reservation station
+        //MAKE SURE the value is valid.
+        // contact reorder buffer directly  and say this is what happend
+        //BranchPredictor has lable address info but this function returns as bool taken or not taken
+        // 
+        // execute cycle will call this function
+        // execute cycle  will call function to make sure reservation station is ready
+        // and it will also put data in CDB.
+        
+        //return 1 is true
+        //retrun 0 is false
+        switch(resStat.function){
+          case BEQ:
                 //return "BEQ";
               if(resStat.data1 == resStat.data2){
-                  //return Lable address+4
+                  return 1;
               }
-              
-          case 31:
+              return 0;
+          case BNE:
              // return "BNE";
               if(resStat.data1 != resStat.data2){
-                  //return Lable address+4
+                  return 1;
               }
-          case 32:
+              return 0;
+          //case 32:
               //return "BEQ";
-              if(resStat.data1 == resStat.data2){
+             // if(resStat.data1 == resStat.data2){
                   //return Lable address+4
-              }
-          case 33:
+             // }
+          //case 33:
               //return "BNE";
-              if(resStat.data1 != resStat.data2){
+             // if(resStat.data1 != resStat.data2){
                   //return Lable address+4
-              }
-          case 34:
+            //  }
+          case BLTZ:
               //return "BLTZ";
               if(resStat.data1 < 0){
-                  //return Lable address+4
+                  return 1;
               }
-          case 35:
+             return 0;
+          case BLEZ:
              // return "BLEZ";
               if(resStat.data1 <= 0){
-                  //return Lable address+4
+                 return 1;
               }
-          case 36:
+              return 0;
+          case BGTZ:
               //return "BGTZ";
               if(resStat.data1 > 0){
-                  //return Lable address+4
+                  return 1;
               }
-          case 37:
+             return 0;
+          case BGEZ:
               //return "BGEZ";
               if(resStat.data1 >= 0){
-                  //return Lable address+4
+                  return 1;
               }
-          case 38:
+              return 0;
+         // case 38:
              // return "BC1T";
-          case 39:
+         // case 39:
              // return "BC1F";
-          case 40:
+          case J:
              // return "J";
               //return Lable address+4
-          case 41:
+              return 1;
+              
+          case JR:
               //return "JR";
               //return Lable address+4
               //And save data in R31
-          case 42:
-             // return "JAL";
-              return resStat.data1;
+              return 1;
               
-          case 43:
+          case JAL:
+             // return "JAL";
+              return 1;
+              
+              
+          case JALR:
             //  return "JALR";
             return resStat.data1;
             //And save data in R31
+            
           default:
-            return -2147483647;
+              //Error statement 
+            return -2;
         }
         
     }
