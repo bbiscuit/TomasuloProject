@@ -27,9 +27,6 @@ public class ProgramCounter {
   public void update() {
     if(/*reservation station has space*/true){
         incrPC();
-    }else{
-        //reservation station is full
-        pc=pc;
     }
       
       
