@@ -19,10 +19,6 @@ public abstract class FunctionalUnit {
   public abstract int getExecCycles();
 
   public void execCycle(CDB cdb) {
-
-      
-      
-      
     //todo - start executing, ask for CDB, etc.
   }
 

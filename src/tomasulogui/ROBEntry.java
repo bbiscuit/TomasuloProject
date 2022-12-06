@@ -11,16 +11,8 @@ public class ROBEntry {
   int instPC = -1;
   int writeReg = -1;
   int writeValue = -1;
-  boolean valid = false;
 
   IssuedInst.INST_TYPE opcode;
-  
-  public boolean isValid(){
-    //check the register has the value in
-    //make sure those registers are not waiting for value to latch in.
-    //get data from IssueUnit because it has opcode and all the information.
-    return true;  
-  }
 
   public ROBEntry(ReorderBuffer buffer) {
     rob = buffer;
