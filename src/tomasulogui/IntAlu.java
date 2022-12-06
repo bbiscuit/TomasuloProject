@@ -17,8 +17,10 @@ public class IntAlu extends FunctionalUnit {
         // else if operatoin is -
             // subtract two operands in reservation station
         // else
-            // some other operation that I did think of if any
-        // update CDB with result of valid data from the reorder buffer (possibly tag)    
+            // throw an exception
+        // update CDB with result of valid data from the reorder buffer and tag
+        // may have race condition like IntMult and may need to update reorder buf
+        // and regs file (not sure if this is the same thing as updating the CDB)
         
         // return result of calculation
         
