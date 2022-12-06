@@ -25,6 +25,11 @@ public class IssueUnit {
       //    so that we can forward during issue
 
       // We then send this to the FU, who stores in reservation station
+      
+      // ALGORITHM:
+      // 1. Check the conditions for issue.
+      // 2. If the conditions have been met, send the instruction to issue
+      // to the reorder buffer and the reservation station.
     }
 
   }
