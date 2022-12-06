@@ -18,7 +18,14 @@ public class ReservationStation {
   boolean addressValid = false;
   int address;
   boolean predictedTaken = false;
-
+  
+  // Busy bit
+  public boolean isBusy(){
+      //Check the Reservation Station is used or not
+      return false;
+  }
+  
+  
   public ReservationStation(PipelineSimulator sim) {
     simulator = sim;
   }
