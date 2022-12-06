@@ -29,6 +29,5 @@ public class ProgramCounter {
         //Need to call function from 
         incrPC();
     }
-      
   }
 }
