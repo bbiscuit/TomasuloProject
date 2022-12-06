@@ -21,7 +21,14 @@ public class ProgramCounter {
   public void incrPC () {
     pc += 4;
   }
-
+  
+  
+  
   public void update() {
+    if(/*reservation station has space*/true){
+        //Need to call function from 
+        incrPC();
+    }
+      
   }
 }
