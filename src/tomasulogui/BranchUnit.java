@@ -8,7 +8,12 @@ public class BranchUnit
     public BranchUnit(PipelineSimulator sim) {
         super(sim);
     }
-
+    /**
+     * 
+     * @param station it is 1 or 0. Depends on which reservation to use.
+     * @return 1 is branch taken, 0 is branch not taken
+     * 
+     */
     public int calculateResult(int station) {
         // todo fill in
         ReservationStation resStat=stations[station];
@@ -101,7 +106,7 @@ public class BranchUnit
             
           default:
               //Error statement 
-            return -2;
+            return -1;
         }
         
     }
